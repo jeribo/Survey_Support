@@ -1,0 +1,25 @@
+<%- model_class = Examination -%>
+<%= simple_form_for(@examination, :html => {:class => 'form form-horizontal'}) do |f| %>
+  <fieldset>
+  	<legend><%= "#{ @examination.id } " unless @examination.id.nil?  %>
+  	  <h1><p class="text-center"><%=t '.title', :default => model_class.model_name.human.titleize %></p> </h1> 
+  	</legend>
+  <div class="form-inputs">
+  	<%= f.association :survey, :class => "form-control" %>
+    <%= f.association :person %>
+    <%= f.input :reference_date, as: :datetime_picker %>
+  </div>
+  </fieldset> 
+  <div class="panel panel-default">
+  	<div class="panel-heading"><%=t("answer.title")%></div> 
+    <div class="panel-body">
+  	    <%= f.simple_fields_for :answers do |a| %>
+        <%= render "answer_fields", :f => a %> 
+  	  <% end %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn btn-success" %>
+    <%= link_to t('cancel'), :class => "btn btn-inverse"%>
+  </div>
+<% end %>

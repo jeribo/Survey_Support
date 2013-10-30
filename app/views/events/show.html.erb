@@ -1,0 +1,61 @@
+<%- model_class = Event -%>
+<div class='page-header'>
+  <h1><p class="text-center"><%=t '.title', :default => model_class.model_name.human.titleize %></p> </h1>  
+</div>
+  <fieldset>
+    <legend> <%= model_class.human_attribute_name(:start_time) %> <%= l @event.start_time, format: :long %> </legend>
+    <dl class="dl-horizontal">
+      <dt>
+        <span class="label label-info">
+      	  <%= model_class.human_attribute_name(:id) %>:
+      	</span>
+      </dt>
+      <dd>
+      	<%= @event.id %>
+      </dd>
+	</dl>
+    <dl class="dl-horizontal">
+      <dt>
+        <span class="label label-info">
+      	  <%= model_class.human_attribute_name(:description) %>:
+      	</span>
+      </dt>
+      <dd>
+      	<%= @event.description %>
+      </dd>
+	</dl>	
+    <dl class="dl-horizontal">
+      <dt>
+        <span class="label label-info">
+      	  <%= model_class.human_attribute_name(:person_id) %>:
+      	</span>
+      </dt>
+      <dd>
+      	<%= @event.person_id %> - <%= @event.person.to_label%>
+      </dd>
+	</dl>	
+    <dl class="dl-horizontal">
+      <dt>
+        <span class="label label-info">
+      	  <%= model_class.human_attribute_name(:end_time) %>:
+      	</span>
+      </dt>
+      <dd>
+      	<%= l @event.end_time, format: :long %>
+      </dd>
+	</dl>	
+    <dl class="dl-horizontal">
+      <dt>
+        <span class="label label-info">
+      	  <%= model_class.human_attribute_name(:activated) %>:
+      	</span>
+      </dt>
+      <dd>
+      	<%= t(@event.activated?.to_s) %>
+      </dd>
+	</dl>	
+  </fieldset>
+<div class="form-actions">
+  <%= link_to t('.Edit'), edit_event_path(@event), :class => "btn btn-primary" %>
+  <%= link_to t('Back'), events_path, :class => "btn btn-inverse" %>
+</div>

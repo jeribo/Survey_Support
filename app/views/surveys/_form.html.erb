@@ -1,0 +1,17 @@
+<%= simple_form_for(@survey, :html => {:class => 'form form-horizontal'}) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :description %>
+    <%= f.input :activated %>
+  </div>
+  <div id="questions">
+  	<%= link_to_add_association 'add questions', f, :questions, :class => "btn btn-default" %>
+ 	<%= f.simple_fields_for :questions do |q| %>
+  	  <%= render "question_fields", :f => q %>
+  	<% end %>  	  	
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

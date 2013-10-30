@@ -1,0 +1,13 @@
+
+
+<%= calendar @events do |event| %>
+  <div class="simple_calendar">
+  	<% if event.activated? then %>
+  	  <%= link_to event.to_label, edit_event_path(event) %>
+  	<% end %>
+  </div>
+<% end %>
+
+<div class="form-actions">
+  <%= link_to 'New Event', new_event_path, :class => "btn btn-primary" %>
+</div> 

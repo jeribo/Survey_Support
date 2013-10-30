@@ -3,3 +3,14 @@
 
 en:
   hello: "Hello world"
+  site_name: "Survey Support"
+  full_site_name:  "Records System to support research"
+  sample_mail: "example@domain.com"
+  confirmation: "Are you sure?"
+  translation:
+    en: English
+    pt-BR: Portuguese
+  admin:
+    title: "Administration"
+  articles:
+    title: "Articles"

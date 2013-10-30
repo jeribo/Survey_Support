@@ -1,0 +1,10 @@
+<div class="input-group">
+  <%= f.input :street, :required => true %>
+  <%= f.input :number %>
+  <%= f.input :complement%>
+  <%= f.association :city, :required => true %>
+  <div class="form-actions">
+    <%= link_to_remove_association "remove address", f, :class => "btn btn-danger" %>
+  </div>  
+</div>
+

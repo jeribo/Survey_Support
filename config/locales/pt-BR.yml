@@ -1,0 +1,43 @@
+pt-BR:
+  welcome: "Bem Vindo"
+  home: "Início"
+  site_name: "Suporte Pesquisas"
+  full_site_name: "Sistema para apoio em registros de pesquisas"
+  sample_mail: "exemplo@dominio.com.br"
+  confirmation: "Você tem certeza?"
+  cancel: "Cancelar"
+  back: "Voltar"
+  show: "Exibir"
+  edit: "Editar"
+  new: "Incluir"
+  true: "Sim"
+  false: "Não"
+  translation:
+    en: Inglês
+    pt-BR: Português
+  admin:
+    title: "Administração"
+  person:
+    title: "Cadastro de Pessoas"
+  address:
+    title: "Endereço(s)" 
+  city:
+    title: "Cadastro de Cidades"
+  state:
+    title: "Cadastro Estados"
+  event:
+    title: "Cadastro de Eventos"
+  survey:
+    title: "Cadastro de Pesquisas/Anameneses"
+    activated: "Pesquisa Ativa?"
+    description: "Descrição Pesquisa"
+  question:
+    title: "Perguntas da Pesquisa"
+    survey_id: "Pesquisa"
+    activated: "Pergunta Ativa?"
+    description: "Descrição Pergunta"
+  answer:
+    title: "Resposta"
+    content: "Conteúdo Resposta"
+    question_id: "Cód.Pergunta"
+    person_id: "Cód.Pessoa"

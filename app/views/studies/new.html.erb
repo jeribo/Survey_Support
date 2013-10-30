@@ -1,0 +1,4 @@
+<% @surveys.each do |s| %>
+  <p> <%= s.description %> </p>
+<% end %>
+<%= link_to "add", :action => :research, :controller => :studies %>

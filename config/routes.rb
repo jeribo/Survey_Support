@@ -1,4 +1,28 @@
 SurveySupport::Application.routes.draw do
+  authenticated :user do
+    get "home/index", as: "home"
+    root :to => 'home#index'
+  end
+  get "welcome/index", as: "welcome"
+  root :to => 'welcome#index'
+  
+  devise_for :users  
+  
+  resources :events
+  
+  resources :people do
+    resources :addresses
+  end
+  resources :surveys
+  resources :cities
+  resources :states
+  resources :studies do
+    member do
+      get 'examinations'
+    end
+  end
+  resources :examinations
+  #get "studies/research", as: "research"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

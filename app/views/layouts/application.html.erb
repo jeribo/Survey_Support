@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>SurveySupport</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : t("site_name") %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : t("site_name") %>">
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+  </head>
+  <body class="<%= controller_name %> <%= action_name %>">
+    <div class="navbar navbar-fixed-top">
+      <nav class="navbar-inner">
+        <div class="container">
+          <%= render 'layouts/navigation' %>         
+        </div>
+      </nav>
+    </div>
+    <div id="main" role="main">
+      <div class="container">
+        <div class="content">
+           <div class="row">
+            <div class="span12">             	
+              <%=render 'layouts/messages' %>
+              <%= yield %>
+            </div>
+          </div>          
+          <div class="navbar navbar-fixed-botton">
+            <nav class="navbar-inner"> 
+              <div class="container">          	
+                <%= language_links %>
+              </div>
+            </nav> 
+          </div>          
+        </div> <!--! end .content -->
+      </div> <!--! end .container -->
+    </div> <!--! end  #main -->
+    <script typ="text/javascript">
+    	<%= yield :js %>
+    </script>
+  </body>
 </html>

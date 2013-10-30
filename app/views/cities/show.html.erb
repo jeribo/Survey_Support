@@ -1,0 +1,37 @@
+<%- model_class = City -%>
+<div class='page-header'>
+  <h1><p class="text-center"><%=t '.title', :default => model_class.model_name.human.titleize %></p> </h1>  
+</div>
+  <fieldset>
+    <legend> <%= @city.description%> </legend>
+    <dl class="dl-horizontal">
+      <dt>
+        <span class="label label-info">
+      	  <%= model_class.human_attribute_name(:id) %>:
+      	</span>
+      </dt>
+      <dd>
+      	<%= @city.id %>
+      </dd>
+      <dt>
+      	<span class="label label-info">
+      	  <%= model_class.human_attribute_name(:description) %>:
+      	</span>
+      </dt>
+      <dd>
+      	<%= @city.description %>
+      </dd>
+      <dt>
+      	<span class="label label-info">
+      	  <%= model_class.human_attribute_name(:state_id) %>:
+        </span>
+      </dt>
+      <dd>
+      	<%= @city.state_id %> - <%= @city.state.description %>
+      </dd>
+    </dl>	
+  </fieldset>
+<div class="form-actions">
+  <%= link_to t('edit'), edit_city_path(@city), :class => "btn btn-primary" %>
+  <%= link_to t('back'), cities_path, :class => "btn btn-inverse" %>
+</div>

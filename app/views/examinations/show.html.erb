@@ -1,0 +1,55 @@
+<%- model_class = Examination -%>
+<div class='page-header'>
+  <h1><p class="text-center"><%=t '.title', :default => model_class.model_name.human.titleize %></p> </h1>  
+</div>
+<fieldset>
+  <dl class="dl-horizontal">
+    <dt>
+      <span class="label label-info">
+        <%= model_class.human_attribute_name(:id) %>:
+      </span>
+    </dt>
+    <dd>
+      <%= @examination.id %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      <span class="label label-info">
+        <%= model_class.human_attribute_name(:person_id) %>:
+      </span>
+    </dt>
+    <dd>
+      <%= @examination.person.to_label unless @examination.person.to_label.nil? %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      <span class="label label-info">
+        <%= model_class.human_attribute_name(:reference_date) %>:
+      </span>
+    </dt>
+    <dd>    
+        <%= l @examination.reference_date, format: :long unless @examination.reference_date.nil? %>
+    </dd>
+  </dl>    
+</fieldset>
+<%- model_class = Answer -%>
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:question_id) %></th>
+      <th><%= model_class.human_attribute_name(:set) %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @examination.answers.each do |answ| %>  
+    <tr>
+      <td><%= answ.question.description_question %></td>
+      <td><%= answ.set %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= link_to 'Edit', edit_examination_path(@examination) %> |
+<%= link_to 'Back', examinations_path %>

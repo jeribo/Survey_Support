@@ -1,0 +1,18 @@
+<%- model_class = Event -%>
+<%= simple_form_for(@event, :html => {:class => 'form form-horizontal'}) do |f| %>
+ <fieldset>
+   <legend><%= l @event.start_time, format: :long unless @event.start_time.nil?  %> </legend>
+   	<h1><p class="text-center"><%=t '.title', :default => model_class.model_name.human.titleize %></p> </h1>
+     <div class="input-group">
+       <%= f.association :person, :required => true %>
+       <%= f.input :description, :required => true %>
+       <%= f.input :start_time, as: :datetime_picker %>
+       <%= f.input :end_time, as: :datetime_picker %>
+       <%= f.input :activated?, as: :boolean, input_html: { value: '1'}%>
+     </div>
+  </fieldset>
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn btn-success" %>
+    <%= link_to t('cancel'), root_path, :class => "btn btn-inverse" %>
+  </div>
+<% end %>

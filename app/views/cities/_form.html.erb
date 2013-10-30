@@ -1,0 +1,16 @@
+<%- model_class = City -%>
+<%= simple_form_for(@city, :html => {:class => 'form form-horizontal'}) do |f| %>
+  <fieldset>
+  	<legend><%= "#{ @city.description } " unless @city.description.nil?  %>
+  	  <h1><p class="text-center"><%=t '.title', :default => model_class.model_name.human.titleize %></p> </h1> 
+  	</legend>
+	<div class="input-group">
+      <%= f.input :description, :required => true %>
+      <%= f.association :state %>        
+    </div>
+  </fieldset>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn btn-success' %>
+    <%= link_to t(".cancel"), root_path, :class => "btn btn-inverse" %>
+  </div>
+<% end %>

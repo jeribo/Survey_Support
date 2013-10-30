@@ -1,0 +1,26 @@
+<%= link_to t("site_name"), root_path, :class => 'brand' %>
+<% if user_signed_in? %>
+<div class"navbar-text pull-left">
+	<%= navigation_links %>
+</div>
+<% end %>
+<div class="navbar-text pull-right">
+  <ul class="nav nav-tabs">
+    <% if user_signed_in? %>
+      <div id="user_loggin_box" style="float:right">
+      	<%= link_to t('devise.links.logout'), destroy_user_session_path, :method=>'delete', :class => 'navbar-link' %>
+      	<%= current_user.email %>      
+      </div>
+      <li>
+        <%= link_to t('devise.registrations.edit.update') , edit_user_registration_path %>
+      </li>      
+    <% else %>
+      <li>
+        <%= link_to t('devise.sessions.new.title'), new_user_session_path %>
+      </li>
+      <li>
+        <%= link_to t('devise.registrations.new.title'), new_user_registration_path %>
+      </li>      
+    <% end %>
+  </ul>
+</div>

@@ -1,0 +1,35 @@
+<%- model_class = Person -%>
+<%- model_child = Address -%>
+<%= simple_form_for(@person, :html => {:class => 'form-horizontal'}) do |f| %>
+  <fieldset>
+  	<legend><%= "#{ @person.to_label } " unless @person.to_label.nil?  %>
+  	  <h1><p class="text-center"><%=t '.title', :default => model_class.model_name.human.titleize %></p> </h1> 
+  	</legend>
+	<div class="input-group">
+      <%= f.input :first_name, :required => true %>
+      <%= f.input :last_name, :required => true %>
+      <%= f.input :federal_id %>
+      <%= f.input :regional_id %>
+      <%= f.input :social_security %>
+      <%= f.input :mothers_name, :required => true %>
+      <%= f.input :fathers_name %>
+      <%= f.input :birthday, as: :date_picker %>
+      <%= f.input :phone1 %>
+      <%= f.input :phone2 %>
+      <%= f.input :email %>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading"><%= model_child.model_name.human.titleize %> </div> 
+    <div class="panel-body">
+  	  <%= link_to_add_association 'addr address', f, :addresses, :class => "btn btn-default" %>
+  	  <%= f.simple_fields_for :addresses do |addr| %>
+  	    <%= render "address_fields", :f => addr %>
+  	  <% end %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn btn-success" %>
+    <%= link_to t('cancel'), :class => 'btn btn-success'%>
+  </div>
+<% end %>
+<br/>

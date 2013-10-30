@@ -1,0 +1,12 @@
+<%= simple_form_for(@research) do |f| %>
+  <div class="form-inputs">
+  	<%= f.association :person %>
+  	<div class="questions">
+  	<%= f.simple_fields_for :answers do |q| %>
+  	  <%= q. %>
+  	  <%= q.input :set %>
+  	  <% end %>
+  	</div> 
+  </div>
+  <%= f.button :submit %>
+<% end %>
